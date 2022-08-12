@@ -329,7 +329,7 @@
 
 // findMaxNumber(1, 1.1, 2.5, 101)
 // -----------------------------------------------------------------------------------
-// // #t4
+// // #t4 (задача с собеседования)
 // function fib(a) {
 //     if (isNaN(a) || a < 0 || a % 1 > 0){
 //         console.log("Ошибка, проверьте данные");
@@ -353,40 +353,362 @@
 // fib(5);
 // ===================================================================================
 // lesson32
-const options = {
-    name: 'test',
-    width: 1024,
-    hight: 1024,
-    colors: {
-        border: 'black',
-        bg: 'red'
-    },
-    makeTest: function(){
-        console.log('Test');
-    }
-};
+// const options = {
+//     name: 'test',
+//     width: 1024,
+//     hight: 1024,
+//     colors: {
+//         border: 'black',
+//         bg: 'red'
+//     },
+//     makeTest: function(){
+//         console.log('Test');
+//     }
+// };
 
-// delete options.name;
+// // delete options.name;
 
-for (let key in options){
-    if (typeof(options[key]) === 'object'){
-        for (let i in options[key]){
-            console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
-        }
+// for (let key in options){
+//     if (typeof(options[key]) === 'object'){
+//         for (let i in options[key]){
+//             console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+//         }
+//     }else{
+//         console.log(`Свойство ${key} имеет значение ${options[key]}`);
+//     }
+// }
+
+// // вывести все ключи объекта в массив
+// console.log(Object.keys(options));
+
+// // количество ключей объекта в массив
+// console.log(Object.keys(options).length);
+
+// // вывести созданный прототип объекта
+// options.makeTest();
+
+// // получить значение ключей вложенных объектов в объект
+// const {border, bg} = options.colors;
+// console.log(border, bg);
+// ===================================================================================
+// lesson33
+
+// const arr = [1, 2, 3, 6, 8];
+
+// arr.pop();
+// arr.push(100);
+
+// console.log(arr);
+// -----------------------------------------------------------------------------------
+// // получить каждый из элементов массива (вариант1)
+// for (let i = 0; i < arr.length ; i++){
+//     console.log(arr[i]);
+// }
+
+// // получить каждый из элементов массива (вариант2)
+// for (let value of arr){
+//     console.log(value);
+// }
+
+// // получить каждый из элементов массива (вариант3)
+// arr.forEach(function(value, i, arr){
+//     console.log(`${i} элемент: ${value} внутри массива ${arr}`)
+// });
+// -----------------------------------------------------------------------------------
+// // преобразовать строку в массив по разделителю
+// const str = 'apple, banana, grapes, mango, orange';
+// const fruits = str.split(', ');
+
+// console.log(fruits);
+
+// // преобразовать массив в строку по разделителю
+// const listOfFruits = ['apple', 'banana', 'grapes', 'mango', 'orange']
+// const strFruits = listOfFruits.join(' ');
+
+// console.log(strFruits);
+// -----------------------------------------------------------------------------------
+//  сортировка массива
+// const numsList = [2, 13, 26, 8, 10];
+
+// numsList.sort(compareNumber);
+// console.log(numsList);
+
+// function compareNumber(a, b) {
+//     return a - b;
+//   }
+// ===================================================================================
+// lesson35
+
+// let a = 5,
+//     b = a;
+
+// b += 5;
+
+// console.log(b);
+// console.log(a);
+// // -----------------------------------------------------------------------------------
+// const obj = {
+//     a: 5,
+//     b: 1
+// }
+
+// const copy_obj = obj;   //передача значения по ссылке на объект (копия объекта не создается)
+// copy_obj.a = 10;
+
+// console.log(copy_obj);
+// console.log(obj);
+// // -----------------------------------------------------------------------------------
+// // создание копию объекта (клонирование) - создается поверхностная копия объекта (не глубокая копия!)
+// function copy(mainObj){
+//     let objCopy = {};
+
+//     let key;
+//     for (key in mainObj){
+//         objCopy[key] = mainObj[key];
+//     }
+
+//     return objCopy;
+// }
+// const numbers = {
+//     a: 2,
+//     b: 5,
+//     c: {
+//         x: 7,
+//         y: 4
+//     }
+// };
+
+// const newNumbers = copy(numbers);
+// newNumbers.a = 100;
+
+// console.log(newNumbers);
+// console.log(numbers);
+// // -----------------------------------------------------------------------------------
+// // объединение объектов
+// const add = {
+//     d: 17,
+//     e: 20
+// };
+
+// console.log(Object.assign(numbers, add));
+
+// const clone = Object.assign({}, add);
+
+// clone.d = 20;
+
+// console.log(add);
+// console.log(clone);
+// // -----------------------------------------------------------------------------------
+// // создание копию объекта (клонирование) - создается глубокая копия объекта
+
+// const oldArray = ['a', 'b', 'c'];
+// const newArray = oldArray.slice();
+
+// newArray[1] = 'xyz';
+// console.log(newArray);
+// console.log(oldArray);
+// // -----------------------------------------------------------------------------------
+// оператор расшриения ...
+// const video = ['youtube', 'vimeo', 'pornhub'],
+//       blogs = ['wordpress', 'livejournal', 'blogger'],
+//       internet = [...video, ...blogs, 'facebook'];
+
+// console.log(internet);
+
+// function log(a, b, c){
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+
+// const num = [2, 5, 7];
+// log(...num);
+// // -----------------------------------------------------------------------------------
+// #t1
+// const personalPlanPeter = {
+//     name: "Peter",
+//     age: "29",
+//     skills: {
+//         languages: ['ru', 'eng'],
+//         programmingLangs: {
+//             js: '20%',
+//             php: '10%'
+//         },
+//         exp: '1 month'
+//     }
+// };
+
+// function showExperience(plan) {
+//     // вытягивание свойства объекта по ключу
+//     console.log(plan.skills.exp);
+
+//     // деструктуризация объекта
+//     const { exp } = plan.skills;
+//     console.log(exp);
+
+//     // разобрать объект на ключи var1
+//     for (let value of Object.entries(plan)){
+//         console.log(value);
+//     }
+
+//     // разобрать объект на ключи var2
+//     for (let value in plan){
+//         console.log(value);
+//     }
+// }
+
+// showExperience(personalPlanPeter);
+// // -----------------------------------------------------------------------------------
+// #t2
+// var1
+// function showProgrammingLangs(plan) {
+//     let { programmingLangs } = plan.skills;
+
+//     let str = '';
+
+//     for (let value of Object.entries(programmingLangs)){
+//         str += `Язык ${value[0]} изучен на ${value[1]} `;
+//     }
+//     console.log(str);
+// }
+
+// showProgrammingLangs(personalPlanPeter);
+
+// var2
+// function showProgrammingLangs(plan) {
+//     let { programmingLangs } = plan.skills;
+
+//     let str = '';
+
+//     for (let value in programmingLangs){
+//         str += `Язык ${value} изучен на ${programmingLangs[value]} `;
+//     }
+//     console.log(str);
+// }
+
+// showProgrammingLangs(personalPlanPeter);
+// // -----------------------------------------------------------------------------------
+// #t3
+// var1
+
+// personalPlanPeter.showAgeAndLangs = function(){
+//     console.log(`Мне ${personalPlanPeter.age} и я владею языками: ${personalPlanPeter.skills.languages.join(' ').toUpperCase()}`);
+// };
+
+// personalPlanPeter.showAgeAndLangs();
+
+// var2
+
+// const personalPlanPeter = {
+//     name: "Peter",
+//     age: "29",
+//     skills: {
+//         languages: ['ru', 'eng'],
+//         programmingLangs: {
+//             js: '20%',
+//             php: '10%'
+//         },
+//         exp: '1 month'
+//     },
+//     showAgeAndLangs: function(plan) {
+//         const {age} = plan;
+//         const {languages} = plan.skills;
+//         let str = `Мне ${age} и я владею языками: `;
+
+//         languages.forEach(function(lang) {
+//             str += `${lang.toUpperCase()} `;
+//         });
+
+//         return str;
+//     }
+// };
+
+// personalPlanPeter.showAgeAndLangs(personalPlanPeter);
+// // -----------------------------------------------------------------------------------
+// #t4
+// const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+
+// function showFamily(arr) {
+//     if (arr.length > 0){
+//         console.log(`Семья состоит из: ${arr.join(' ')}`);
+//     }else{
+//         console.log('Семья пуста');
+//     }   
+// }
+
+// showFamily(family);
+// // -----------------------------------------------------------------------------------
+// #t5
+// const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+// function standardizeStrings(arr) {
+//     for (let i = 0; i < arr.length; i++){
+//         console.log(arr[i].toLowerCase());
+//     }
+// }
+
+// standardizeStrings(favoriteCities);
+// // -----------------------------------------------------------------------------------
+// #t5 (задача с собеседования)
+// Функцию reverse, которая принимает в себя строку и возвращает эту строку в обратном порядке.
+const someString = 'This is some strange string';
+
+// // var1
+// function reverse(str) {
+//     let strReverse = '';
+
+//     if (typeof(str) != 'string'){
+//         strReverse = 'Ошибка!';
+//     }else{
+//         for (let i = 0; i < str.length; i++){
+//             strReverse += str[str.length - i - 1];
+//         }
+//     }
+//     console.log(strReverse);
+// }
+
+// // var2
+// function reverse(str) {
+
+//     let strReverse = '';
+
+//     if (typeof(str) != 'string'){
+//         strReverse = 'Ошибка!';
+//     }else{
+//         let strArray = [...str];
+//         strReverse = strArray.reverse().join('');
+//     }
+//     console.log(strReverse);
+// }
+
+// reverse(someString);
+// // -----------------------------------------------------------------------------------
+// #t6
+const baseCurrencies = ['USD', 'EUR', 'CNY'];
+const additionalCurrencies = ['UAH', 'RUB'];
+
+function availableCurr(arr, missingCurr) {
+    if (arr.length == 0){
+        console.log('Нет доступных валют');
     }else{
-        console.log(`Свойство ${key} имеет значение ${options[key]}`);
+        arr.forEach(function (value) {
+            if (missingCurr.length != 0){
+                missingCurr.forEach(function (value2){
+
+                    if (value == value2){
+                        arr.splice(arr.indexOf(value), 1);
+                    };
+                });
+            }
+        });
+
+        if (arr.length > 0){
+            console.log('Доступные валюты:');
+            arr.forEach(function (value){
+                console.log(value);
+            });
+        }
     }
 }
 
-// вывести все ключи объекта в массив
-console.log(Object.keys(options));
-
-// количество ключей объекта в массив
-console.log(Object.keys(options).length);
-
-// вывести созданный прототип объекта
-options.makeTest();
-
-// получить значение ключей вложенных объектов в объект
-const {border, bg} = options.colors;
-console.log(border, bg)
+availableCurr(baseCurrencies, additionalCurrencies);
