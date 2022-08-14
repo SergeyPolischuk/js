@@ -651,7 +651,7 @@
 // // -----------------------------------------------------------------------------------
 // #t5 (задача с собеседования)
 // Функцию reverse, которая принимает в себя строку и возвращает эту строку в обратном порядке.
-const someString = 'This is some strange string';
+// const someString = 'This is some strange string';
 
 // // var1
 // function reverse(str) {
@@ -684,31 +684,191 @@ const someString = 'This is some strange string';
 // reverse(someString);
 // // -----------------------------------------------------------------------------------
 // #t6
-const baseCurrencies = ['USD', 'EUR', 'CNY'];
-const additionalCurrencies = ['UAH', 'RUB'];
+// const baseCurrencies = ['USD', 'EUR', 'CNY'];
+// const additionalCurrencies = ['UAH', 'RUB'];
 
-function availableCurr(arr, missingCurr) {
-    if (arr.length == 0){
-        console.log('Нет доступных валют');
-    }else{
-        arr.forEach(function (value) {
-            if (missingCurr.length != 0){
-                missingCurr.forEach(function (value2){
+// function availableCurr(arr, missingCurr) {
+//     if (arr.length == 0){
+//         console.log('Нет доступных валют');
+//     }else{
+//         arr.forEach(function (value) {
+//             if (missingCurr.length != 0){
+//                 missingCurr.forEach(function (value2){
 
-                    if (value == value2){
-                        arr.splice(arr.indexOf(value), 1);
-                    };
-                });
-            }
-        });
+//                     if (value == value2){
+//                         arr.splice(arr.indexOf(value), 1);
+//                     };
+//                 });
+//             }
+//         });
 
-        if (arr.length > 0){
-            console.log('Доступные валюты:');
-            arr.forEach(function (value){
-                console.log(value);
-            });
+//         if (arr.length > 0){
+//             console.log('Доступные валюты:');
+//             arr.forEach(function (value){
+//                 console.log(value);
+//             });
+//         }
+//     }
+// }
+
+// availableCurr(baseCurrencies, additionalCurrencies);
+// ===================================================================================
+// lesson36
+// let str = 'some';
+// let strObj = new String(str);
+
+// console.log(typeof(str));
+// console.log(typeof(strObj));
+// // -----------------------------------------------------------------------------------
+// const soldier = {
+//     health: 400,
+//     armor: 100
+// };
+
+// const Jonh = Object.create(soldier);
+
+// // устаревший формат установки прототипа 
+// // Jonh.__proto__ = soldier;
+
+// // установить прототип для объекта
+// Object.setPrototypeOf(Jonh, soldier);
+
+// console.log(Jonh.health);
+
+// ===================================================================================
+// lesson37 (ООП)
+
+const persolnalMovieDB = {
+    count: 0,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+    start: function(){
+        while (persolnalMovieDB.count == '' || persolnalMovieDB.count == null || isNaN(persolnalMovieDB.count)){
+            persolnalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели?", 0);
         }
+    },
+    rememberMyFilms: function(){
+        for (let i = 0; i < 2; i++){
+            const a = prompt('Один из просмотреных фильмов?',''),
+                b = prompt('Как оцените его?','');
+    
+                if (a != null && b != null && a != '' && b != ' && ' && a.length < 50) {
+                    persolnalMovieDB.movies[a] = b;
+                    console.log ('done');
+                } else {
+                    console.log('errror');
+                    i--;
+                }
+        }
+    },
+    detectPersonalLevel: function(){
+        if (persolnalMovieDB.count < 10) {
+            console.log('Мало');
+            } else if (persolnalMovieDB.count < 30 && persolnalMovieDB.count >= 10){
+                console.log('Normalno');
+            } else if (persolnalMovieDB.count >= 30){
+                console.log('ZBS');
+            }else { 
+                console.log("Error");
+            }
+    },
+    showMyDB: function(hidden){
+        if (!hidden){
+            console.log(persolnalMovieDB);
+        }
+    },
+    writeYourGenres: function(){
+        for(let i = 1; i<=3; i++){
+            while (persolnalMovieDB.genres[i - 1] == null || persolnalMovieDB.genres[i - 1] == '' || persolnalMovieDB.genres[i - 1].length == 0) {
+                persolnalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+            }
+        }
+
+        persolnalMovieDB.genres.forEach(function(value, i){
+            console.log(`Любимый жанр #${i+1} - это ${value}`);
+        });
+    },
+    toggleVisibleMyDB: function(){
+        persolnalMovieDB.privat = (!persolnalMovieDB.privat);
+    }
+};
+// -----------------------------------------------------------------------------------
+// #t1
+const shoppingMallData = {
+    shops: [
+        {
+            width: 10,
+            length: 5
+        },
+        {
+            width: 15,
+            length: 7
+        },
+        {
+            width: 20,
+            length: 5
+        },
+        {
+            width: 8,
+            length: 10
+        }
+    ],
+    height: 5,
+    moneyPer1m3: 30,
+    budget: 50000
+};
+
+function isBudgetEnough(data) {
+    let squareTotal = 0;
+
+    shoppingMallData.shops.forEach((value) => {
+        squareTotal += value.width * value.length;
+    });
+
+    if (squareTotal * shoppingMallData.height * shoppingMallData.moneyPer1m3 <= shoppingMallData.budget){
+        console.log('Бюджета достаточно');
+    }else{
+        console.log('Бюджета недостаточно');
     }
 }
 
-availableCurr(baseCurrencies, additionalCurrencies);
+isBudgetEnough(shoppingMallData);
+// -----------------------------------------------------------------------------------
+// #t2
+const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam', 'Paul'];
+
+function sortStudentsByGroups(arr) {
+    
+    let allGroups = [],
+        group1 = [],
+        group2 = [],
+        group3 = [],
+        otherStudents = '';
+
+    let studentsSort = arr.sort();
+
+    let countStudents = 0;
+    studentsSort.forEach((name) =>{countStudents += 1;});
+
+    for (let i = 0; i < countStudents; i++){
+            
+        if (i <= 2){group1.push(studentsSort[i]);}
+        if (i >= 3 && i <= 5){group2.push(studentsSort[i]);}
+        if (i >= 6 && i <= 8){group3.push(studentsSort[i]);}
+        else if(i == 9){
+            otherStudents += 'Оставшиеся студенты: ' + studentsSort[i];
+        }else if(i > 9){
+            otherStudents += ', ' + studentsSort[i];
+        }
+    }
+
+    allGroups.push(group1, group2, group3, otherStudents);
+
+    console.log(allGroups);
+}
+
+sortStudentsByGroups(students);
+// ===================================================================================
+// lesson38
