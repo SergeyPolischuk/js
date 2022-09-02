@@ -735,140 +735,338 @@
 
 // console.log(Jonh.health);
 
-// ===================================================================================
-// lesson37 (ООП)
+// // ===================================================================================
+// // lesson37 (ООП)
 
-const persolnalMovieDB = {
-    count: 0,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false,
-    start: function(){
-        while (persolnalMovieDB.count == '' || persolnalMovieDB.count == null || isNaN(persolnalMovieDB.count)){
-            persolnalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели?", 0);
-        }
-    },
-    rememberMyFilms: function(){
-        for (let i = 0; i < 2; i++){
-            const a = prompt('Один из просмотреных фильмов?',''),
-                b = prompt('Как оцените его?','');
+// const persolnalMovieDB = {
+//     count: 0,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false,
+//     start: function(){
+//         while (persolnalMovieDB.count == '' || persolnalMovieDB.count == null || isNaN(persolnalMovieDB.count)){
+//             persolnalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели?", 0);
+//         }
+//     },
+//     rememberMyFilms: function(){
+//         for (let i = 0; i < 2; i++){
+//             const a = prompt('Один из просмотреных фильмов?',''),
+//                 b = prompt('Как оцените его?','');
     
-                if (a != null && b != null && a != '' && b != ' && ' && a.length < 50) {
-                    persolnalMovieDB.movies[a] = b;
-                    console.log ('done');
-                } else {
-                    console.log('errror');
-                    i--;
-                }
-        }
-    },
-    detectPersonalLevel: function(){
-        if (persolnalMovieDB.count < 10) {
-            console.log('Мало');
-            } else if (persolnalMovieDB.count < 30 && persolnalMovieDB.count >= 10){
-                console.log('Normalno');
-            } else if (persolnalMovieDB.count >= 30){
-                console.log('ZBS');
-            }else { 
-                console.log("Error");
-            }
-    },
-    showMyDB: function(hidden){
-        if (!hidden){
-            console.log(persolnalMovieDB);
-        }
-    },
-    writeYourGenres: function(){
-        for(let i = 1; i<=3; i++){
-            while (persolnalMovieDB.genres[i - 1] == null || persolnalMovieDB.genres[i - 1] == '' || persolnalMovieDB.genres[i - 1].length == 0) {
-                persolnalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
-            }
-        }
+//                 if (a != null && b != null && a != '' && b != ' && ' && a.length < 50) {
+//                     persolnalMovieDB.movies[a] = b;
+//                     console.log ('done');
+//                 } else {
+//                     console.log('errror');
+//                     i--;
+//                 }
+//         }
+//     },
+//     detectPersonalLevel: function(){
+//         if (persolnalMovieDB.count < 10) {
+//             console.log('Мало');
+//             } else if (persolnalMovieDB.count < 30 && persolnalMovieDB.count >= 10){
+//                 console.log('Normalno');
+//             } else if (persolnalMovieDB.count >= 30){
+//                 console.log('ZBS');
+//             }else { 
+//                 console.log("Error");
+//             }
+//     },
+//     showMyDB: function(hidden){
+//         if (!hidden){
+//             console.log(persolnalMovieDB);
+//         }
+//     },
+//     writeYourGenres: function(){
+//         for(let i = 1; i<=3; i++){
+//             while (persolnalMovieDB.genres[i - 1] == null || persolnalMovieDB.genres[i - 1] == '' || persolnalMovieDB.genres[i - 1].length == 0) {
+//                 persolnalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+//             }
+//         }
 
-        persolnalMovieDB.genres.forEach(function(value, i){
-            console.log(`Любимый жанр #${i+1} - это ${value}`);
-        });
-    },
-    toggleVisibleMyDB: function(){
-        persolnalMovieDB.privat = (!persolnalMovieDB.privat);
-    }
-};
-// -----------------------------------------------------------------------------------
-// #t1
-const shoppingMallData = {
-    shops: [
-        {
-            width: 10,
-            length: 5
-        },
-        {
-            width: 15,
-            length: 7
-        },
-        {
-            width: 20,
-            length: 5
-        },
-        {
-            width: 8,
-            length: 10
-        }
-    ],
-    height: 5,
-    moneyPer1m3: 30,
-    budget: 50000
-};
+//         persolnalMovieDB.genres.forEach(function(value, i){
+//             console.log(`Любимый жанр #${i+1} - это ${value}`);
+//         });
+//     },
+//     toggleVisibleMyDB: function(){
+//         persolnalMovieDB.privat = (!persolnalMovieDB.privat);
+//     }
+// };
+// // -----------------------------------------------------------------------------------
+// // #t1
+// const shoppingMallData = {
+//     shops: [
+//         {
+//             width: 10,
+//             length: 5
+//         },
+//         {
+//             width: 15,
+//             length: 7
+//         },
+//         {
+//             width: 20,
+//             length: 5
+//         },
+//         {
+//             width: 8,
+//             length: 10
+//         }
+//     ],
+//     height: 5,
+//     moneyPer1m3: 30,
+//     budget: 50000
+// };
 
-function isBudgetEnough(data) {
-    let squareTotal = 0;
+// function isBudgetEnough(data) {
+//     let squareTotal = 0;
 
-    shoppingMallData.shops.forEach((value) => {
-        squareTotal += value.width * value.length;
-    });
+//     shoppingMallData.shops.forEach((value) => {
+//         squareTotal += value.width * value.length;
+//     });
 
-    if (squareTotal * shoppingMallData.height * shoppingMallData.moneyPer1m3 <= shoppingMallData.budget){
-        console.log('Бюджета достаточно');
-    }else{
-        console.log('Бюджета недостаточно');
-    }
-}
+//     if (squareTotal * shoppingMallData.height * shoppingMallData.moneyPer1m3 <= shoppingMallData.budget){
+//         console.log('Бюджета достаточно');
+//     }else{
+//         console.log('Бюджета недостаточно');
+//     }
+// }
 
-isBudgetEnough(shoppingMallData);
-// -----------------------------------------------------------------------------------
-// #t2
-const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam', 'Paul'];
+// isBudgetEnough(shoppingMallData);
+// // -----------------------------------------------------------------------------------
+// // #t2
+// const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam', 'Paul'];
 
-function sortStudentsByGroups(arr) {
+// function sortStudentsByGroups(arr) {
     
-    let allGroups = [],
-        group1 = [],
-        group2 = [],
-        group3 = [],
-        otherStudents = '';
+//     let allGroups = [],
+//         group1 = [],
+//         group2 = [],
+//         group3 = [],
+//         otherStudents = '';
 
-    let studentsSort = arr.sort();
+//     let studentsSort = arr.sort();
 
-    let countStudents = 0;
-    studentsSort.forEach((name) =>{countStudents += 1;});
+//     let countStudents = 0;
+//     studentsSort.forEach((name) =>{countStudents += 1;});
 
-    for (let i = 0; i < countStudents; i++){
+//     for (let i = 0; i < countStudents; i++){
             
-        if (i <= 2){group1.push(studentsSort[i]);}
-        if (i >= 3 && i <= 5){group2.push(studentsSort[i]);}
-        if (i >= 6 && i <= 8){group3.push(studentsSort[i]);}
-        else if(i == 9){
-            otherStudents += 'Оставшиеся студенты: ' + studentsSort[i];
-        }else if(i > 9){
-            otherStudents += ', ' + studentsSort[i];
-        }
-    }
+//         if (i <= 2){group1.push(studentsSort[i]);}
+//         if (i >= 3 && i <= 5){group2.push(studentsSort[i]);}
+//         if (i >= 6 && i <= 8){group3.push(studentsSort[i]);}
+//         else if(i == 9){
+//             otherStudents += 'Оставшиеся студенты: ' + studentsSort[i];
+//         }else if(i > 9){
+//             otherStudents += ', ' + studentsSort[i];
+//         }
+//     }
 
-    allGroups.push(group1, group2, group3, otherStudents);
+//     allGroups.push(group1, group2, group3, otherStudents);
 
-    console.log(allGroups);
-}
+//     console.log(allGroups);
+// }
 
-sortStudentsByGroups(students);
+// sortStudentsByGroups(students);
 // ===================================================================================
 // lesson38
+// function createCounter() {
+//     let counter = 0;
+
+//     const myFunction = function(){
+//         counter += 1;
+//         return counter;
+//     };
+//     return myFunction;
+// }
+
+// const increment = createCounter();
+// const c1 = increment();
+// const c2 = increment();
+// const c3 = increment();
+
+// console.log(c1, c2, c3);
+// ===================================================================================
+// task1
+// console.log(true > true)    //true > true >> результат false
+// console.log(0 || NaN || false || null)  //результат null (т.к. все значения false)
+// -----------------------------------------------------------------------------------
+// task2
+// function foo(a,b) {
+//     const [first] = a;
+//     const {eng} = b;
+ 
+//     console.log( `${first} ${eng}`);
+// }
+ 
+// const result = foo(['Hello', 'Привет'], {ru: 'Мир', eng: 'World'});
+// ===================================================================================
+// // задачи для собеседования
+// // Какое будет выведено значение: 
+// let x = 5; 
+// console.log( x++ ); //5
+
+// // Чему равно такое выражение: 
+// console.log([ ] + false - null + true)  //Nan >> пустой массив (string) - false (number)
+
+// // Что выведет этот код: 
+// let y = 1; let x = y = 2; console.log(x);   //2 >> конструкция присваивания читается справа-налево x = y = 2
+
+// // Чему равна сумма
+// console.log([ ] + 1 + 2);   //'12'
+
+// // Что выведет этот код: 
+// console.log( "1"[0] );  //1 >> берется 0 элемент строки
+
+// // Чему равно 
+// console.log(2 && 1 && null && 0 && undefined)   //null >> оператор && возращает значение элемента, для которого первое найденное условие было false
+
+// // Есть ли разница между выражениями? 
+// console.log((!!( 1 && 2 )) === (1 && 2));   //false >> оператор !! приводит значения к булевому типу данных >> true <> 1
+// console.log(!!( 1 && 2 ));
+// console.log(1 && 2);
+
+// // Что выведет этот код: 
+// console.log( null || 2 && 3 || 4 ); //3 >> приоритет && выше чем у ||, 2 && 3 >> 3; null || 3 >> 3; 3 || 4 >> 3 (или запинается на лжи)
+
+// // Правда ли что a == b
+// let a = [1, 2, 3]; 
+// let b = [1, 2, 3];
+// console.log(a == b);    //false >> считается как 2 отдельных объекта
+
+// // Что выведет этот код: 
+// console.log( +"Infinity" ); //Infinity
+
+// // Верно ли сравнение: 
+// console.log("Ёжик" > "яблоко"); //false >> происходит посимвольное сравнение по таблице Unicode 
+
+// // Чему равно 
+// console.log(0 || "" || 2 || undefined || true || falsе);  //2 >> "" пустая строка false
+// ===================================================================================
+// lesson
+// task1
+
+// const restorantData = {
+//     menu: [
+//         {
+//             name: 'Salad Caesar',
+//             price: '14$'
+//         },
+//         {
+//             name: 'Pizza Diavola',
+//             price: '9$'
+//         },
+//         {
+//             name: 'Beefsteak',
+//             price: '17$'
+//         },
+//         {
+//             name: 'Napoleon',
+//             price: '7$'
+//         }
+//     ],
+//     waitors: [
+//         {name: 'Alice', age: 22}, {name: 'John', age: 24}
+//     ],
+//     averageLunchPrice: '20$',
+//     openNow: true
+// };
+
+// function isOpen(prop) {
+//     let answer = '';
+//     prop ? answer = 'Открыто' : answer = 'Закрыто';
+
+//     return answer;
+// }
+
+// console.log(isOpen(restorantData.openNow));
+
+// function isAverageLunchPriceTrue(fDish, sDish, average) {  
+
+//     if (+fDish.price.slice(0, -1) + (+sDish.price.slice(0, -1)) < +average.slice(0, -1)) {
+//         return 'Цена ниже средней';
+//     } else {
+//         return 'Цена выше средней';
+//     }
+// }
+
+// console.log(isAverageLunchPriceTrue(restorantData.menu[0], restorantData.menu[1], restorantData.averageLunchPrice));
+
+// function transferWaitors(data) {
+//     const copy = Object.assign({}, data);    
+
+//     // copy.waitors[0] = {name: 'Mike', age: 32};
+//     // return copy;
+// }
+
+// transferWaitors(restorantData);
+
+
+
+// function decryptMessage(message) {
+//     // write code here
+//     let strReverse = '';
+    
+//     for (let i = 0; i < message.length; i++){
+//         strReverse += message[message.length - i - 1];
+//     }
+//     console.log(strReverse);
+//   }
+  
+  
+//   // 'We like drinking beer!!!'
+//   decryptMessage('!!!reeb gniknird ekil eW');
+  
+//   // 'A coronavirus pandemic will be in 2020'
+//   decryptMessage('0202 ni eb lliw cimednap surivanoroc A');
+  
+// ===================================================================================
+// mate academy - exam
+// function isWerewolf(target) {
+//     // write code here
+//     let strReverse = '';
+//     let str = target.toLowerCase().split(' ').join('').split(',').join('');
+
+//     for (let i = str.length - 1; i >= 0; i--){
+//         strReverse += str[i];
+//     }
+
+//     if (str == strReverse){
+//         console.log(`${true} ('${str}' -> '${strReverse}')`);
+//     }else{
+//         console.log(`${false} ('${str}' -> '${strReverse}')`);
+//     }
+// }
+
+// isWerewolf('rotator'); // true ('rotator' -> 'rotator')
+// isWerewolf('home'); // false ('home' -> 'emoh')
+// isWerewolf('Racecar'); // true (регистр игнорируется)
+// isWerewolf('eva, can i see bees in a cave'); // true (пробелы и знаки препинания игнорируются)
+// isWerewolf('Was it a rat I saw?');
+
+// ===================================================================================
+// mate academy - exam
+// function getSuccessRate(statistic) {
+//     // write code here
+
+//     let strCount = 0;
+
+//     if (statistic == ''){
+//         return 0;
+//     }else{
+//         for (let val of statistic){
+//             strCount += +val;
+//         }
+
+//         return Math.round(strCount / statistic.length * 100);
+//     }
+// }
+
+// getSuccessRate('11100'); // 60
+// getSuccessRate('1100'); // 50
+// getSuccessRate('000000'); // 0
+// getSuccessRate('11111'); // 100
+// getSuccessRate(''); // 0
+
