@@ -1023,7 +1023,7 @@
 //   decryptMessage('0202 ni eb lliw cimednap surivanoroc A');
   
 // ===================================================================================
-// mate academy - exam
+// mate academy - exam1
 // function isWerewolf(target) {
 //     // write code here
 //     let strReverse = '';
@@ -1047,7 +1047,7 @@
 // isWerewolf('Was it a rat I saw?');
 
 // ===================================================================================
-// mate academy - exam
+// mate academy - exam2
 // function getSuccessRate(statistic) {
 //     // write code here
 
@@ -1069,4 +1069,70 @@
 // getSuccessRate('000000'); // 0
 // getSuccessRate('11111'); // 100
 // getSuccessRate(''); // 0
+// ===================================================================================
+// mate academy - exam3
+// function getLargestExpressionResultOfTwo(a, b) {
+//     // write code here
+//      let result = a + b;
+  
+//     if (a - b > result){
+//       result = a - b;
+//     };
+//     if (a * b > result ){
+//       result = a * b;
+//     }
+//     return result    ;
+//   }
+// getLargestExpressionResultOfTwo();
 
+// ===================================================================================
+// mate academy - exam4
+// function getLargestExpressionResult(a, b){
+//     let maxVal = a + b;
+
+//     //     let result = a + b;
+//     //     if (result < a - b) {
+//     //       result = a - b
+//     //     } 
+//     //     if (result < a * b) {
+//     //       result = a * b
+//     //     }
+//     //     if (result < a / b) {
+//     //       result = a / b
+//     //     }
+//     //     console.log(result);
+
+
+//     if (a - b > maxVal){maxVal = a - b};
+//     if (a * b > maxVal){maxVal = a * b};
+//     if (a / b > maxVal){maxVal = a / b};
+
+//     return maxVal;
+// } 
+
+// getLargestExpressionResult(10, 5); // 50 
+// getLargestExpressionResult(10, -5); // 15
+// // ===================================================================================
+// // mate academy - exam5
+// function calculateProfit(amount, percent, period) {
+//     // write code here
+//     let totalSum = amount;
+//     let i = 0;
+  
+//     if (amount != 0 && percent != 0 && period != 0){
+//         do {
+//           totalSum += totalSum * percent/100;
+//           i++;
+//         } while (period > i);
+  
+//         return Math.floor(totalSum - amount);
+//       }else{
+//         return 0
+//       }
+//     }
+  
+  
+//   calculateProfit(1000, 5, 1); // 50
+//   calculateProfit(12500, 3, 12); // 5322
+//   calculateProfit(1000, 5.5, 7); // 454
+//   calculateProfit(8000, 5, 0); // 454
