@@ -1136,3 +1136,201 @@
 //   calculateProfit(12500, 3, 12); // 5322
 //   calculateProfit(1000, 5.5, 7); // 454
 //   calculateProfit(8000, 5, 0); // 454
+// ===================================================================================
+// // mate academy - exam6
+// function isSorted(boxNumbers) {
+//     // write code here
+//     let result = true;
+
+//     if (boxNumbers.length > 1){
+//         for(let i = 0; i < boxNumbers.length - 1; i++){
+//             if(boxNumbers[i] <= boxNumbers[i + 1]){
+//                 result = true;
+//             }else {
+//                 result = false;
+//                 break;
+//             }
+//         }
+//     }
+//     console.log(result);
+//   }
+  
+// isSorted([1, 2, 3, 4, 5]); // true
+// isSorted([0, 1, 1, 1, 2]); // true
+// isSorted([1, 2, 11]); // true
+// isSorted([5]); // true
+// isSorted([]); // true
+// isSorted([0, 3, 1, 2, 2, 2]); // false
+// isSorted([1, 11, 2]); // false
+// // ===================================================================================
+// // mate academy - exam7
+// Реализуй функцию getSpeedStatistic, которая принимает массив скоростей роботов testResults и возвращает статистику в виде массива, в котором:
+
+// первый элемент — самая низкая скорость;
+// второй элемент — самая высокая скорость;
+// третий элемент — среднее значение всех скоростей, округленное вниз (используй Math.floor).
+// Обрати внимание: если входной массив скоростей пуст — верни массив [0, 0, 0].
+
+// function getSpeedStatistic(testResults) {
+// // write code here
+
+//     if (testResults.length === 0) {
+//         return [0,0,0];
+//     }
+
+//     let min = testResults[0];
+//     let max = testResults[0];
+//     let sum = 0;
+
+//     for(let element of testResults) {
+//         sum += element;
+
+//         if (element > max) {
+//             max = element;
+//         } if (element < min) {
+//             min = element;
+//         }
+//     }
+
+//     let average = Math.floor(sum / testResults.length);
+//     return [min, max, average];
+// }
+
+// getSpeedStatistic([]); // [0, 0, 0]
+// getSpeedStatistic([10]); // [10, 10, 10]
+// getSpeedStatistic([8, 9, 3, 12]); // [3, 12, 8]
+// getSpeedStatistic([10, 10, 11, 9, 12, 8]); // [8, 12, 10]
+// // ===================================================================================
+// // mate academy - exam7
+// Давай напишем функцию compareRobots, которая получает два массива. 
+// Первый массив firstRobotResults — это веса грузов, перевезенных за день первым роботом, 
+// второй secondRobotResults — соответственно, вторым.
+// Проверь, кто из роботов может перевезти больший вес, и верни строку с рекомендацией, кого из роботов стоит купить:
+// function compareRobots(firstRobotResults, secondRobotResults) {
+//     // write code here
+//     let firstRobotMass = 0,
+//         secondRobotMass = 0,
+//         firstReply = 'Both robots for sale!',
+//         secondReply = 'First robot for sale!',
+//         thirdReply =  'Second robot for sale!';
+
+//     for( let i = 0; i < firstRobotResults.length; i++){
+//         firstRobotMass += firstRobotResults[i];
+//     }
+//     for( let j = 0; j < secondRobotResults.length; j++){
+//         secondRobotMass += secondRobotResults[j];
+//     }
+//     if(firstRobotMass === secondRobotMass){
+//         console.log( firstReply);
+//     }else if(firstRobotMass > secondRobotMass){
+//         console.log( secondReply);
+//     } else{
+//         console.log(thirdReply) ;
+//     }
+//   }
+  
+// compareRobots([12, 4, 13], [1, 1, 4, 5, 12]); // 'First robot for sale!' (29 > 23)
+// compareRobots([9, 7, 9], [1, 3, 4, 5, 12]); // 'Both robots for sale!' (25 = 25)
+// compareRobots([1, 3, 4], [1, 1, 4, 5]); // 'Second robot for sale!' (8 < 11)
+
+// // ===================================================================================
+// // mate academy - exam8
+// // Напиши функцию scrollingText, которая:
+// // принимает строку word;
+// // последовательно переставляет все символы в строке с нулевого индекса на последний;
+// // возвращает массив с полученными комбинациями этой строки в верхнем регистре.
+
+// function scrollingText(word) {
+//     let wordUpper = word.toUpperCase(),
+//         wordModified = wordUpper,
+//         arr = [wordUpper];
+
+//     for (let i = 0; i < wordUpper.length - 1; i++){
+//         // console.log(wordUpper[i]);
+
+//         wordModified = wordModified.slice(1) + wordUpper[i];
+//         arr.push(wordModified);
+//     }
+//     console.log(arr);
+// }
+
+// scrollingText('robot'); // [ 'ROBOT', 'OBOTR', 'BOTRO', 'OTROB', 'TROBO' ]
+
+// // ===================================================================================
+// // mate academy - exam9
+// // Создай функцию isSpecialNumber, которая принимает положительное число n и определяет, является ли оно особенным.
+// // Число называется особенным, если каждая его цифра не больше чем 5 (0, 1, 2, 3, 4 или 5).
+// // Функция должна возвращать строку 'Special!!', если число особенное, и 'NOT!!' – если нет.
+
+// function isSpecialNumber(n) {
+//     let str = '' + n,
+//         result = 'Special!!';
+
+//     for (let i = 0; i < str.length; i++){
+//         if (str[i] < 0 || str[i] > 5){
+//             result = 'NOT!!';
+//         }
+//     }
+
+//     console.log(result);
+// }
+  
+// isSpecialNumber(2); // 'Special!!'  // 2 — находится в интервале от 0 до 5
+// isSpecialNumber(9); // 'NOT!!'  // 9 > 5
+// isSpecialNumber(23); // 'Special!!'  // все цифры числа 23 находятся в интервале от 0 до 5
+// isSpecialNumber(38); // 'NOT!!'  // 8 > 5
+
+// // ===================================================================================
+// // mate academy - exam10
+// // Давай проверим, все ли наши числа опрятные. Число считается опрятным, если каждая его цифра не меньше предыдущей.
+// // Реализуй функцию isTidy, которая принимает положительное число number и возвращает true, если оно опрятное, иначе — false.
+
+// function isTidy(number) {
+//     let str = '' + number,
+//         result = true;
+
+//     for (let i = 0; i < str.length; i++){
+//         if (+str[i] > +str[i + 1]){
+//             result = false;
+//         }
+//     }
+//     console.log(result);
+// }
+
+// isTidy (12); // true // цифры расположены по возрастатанию
+// isTidy (32); // false // цифры расположены в убывающем порядке 
+// isTidy (1024); // false // 1 > 0
+// isTidy(3445); // true // одинаковые цифры могут стоять рядом
+// isTidy (13579); // true // цифры расположены по возрастатанию
+
+
+// // ===================================================================================
+// // mate academy - exam11
+// Реализуй функцию isJumping, которая принимает число number и возвращает строку 'JUMPING', 
+// если каждая цифра в числе отличается от соседней на 1. Если условие не выполняется — строку 'NOT JUMPING'.
+// исходное число всегда положительное;
+// разница между 9 и 0 не равна 1;
+// если рядом стоят одинаковые цифры, то число 'NOT JUMPING';
+// если число состоит из одной цифры - оно JUMPING.
+
+// function isJumping(number) {
+//     let str = '' + number,
+//         result = 'JUMPING';
+
+//     if (str.length > 1){
+//         for (let i = 1; i < str.length; i++){
+
+//             if (Math.abs(+str[i - 1] - +str[i]) > 1){
+//                 result = 'NOT JUMPING';
+//             }
+//         }
+//     }
+//     console.log(result);
+
+//   }
+
+
+// isJumping(9); // 'JUMPING' // число из одной цифры
+// isJumping(79); // 'NOT JUMPING' // 7 и 9 отличаются на 2 а не на 1
+// isJumping(23454); // 'JUMPING' // все cоседние цифры отличаются на 1
+// isJumping(90); // 'NOT JUMPING'
